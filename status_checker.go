@@ -4,10 +4,11 @@ import (
 	"io/ioutil"
 	"io"
 	"fmt"
+	"time"
 )
 
 func Check(url string, method string, expectedStatusCode int) Status{
-	client := http.DefaultClient
+	client := &http.Client{Timeout: 500 * time.Millisecond}
 
 	response, err := client.Get(url)
 	if err != nil {
