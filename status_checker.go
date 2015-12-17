@@ -8,7 +8,7 @@ import (
 )
 
 func Check(url string, method string, expectedStatusCode int) Status{
-	client := &http.Client{Timeout: 500 * time.Millisecond}
+	client := &http.Client{Timeout: 1000 * time.Millisecond}
 
 	response, err := client.Get(url)
 	if err != nil {
